@@ -5,35 +5,31 @@ const port = 3000;
 
 app.get('/examen', (req, res) => {
     let numero = parseFloat(req.query.numero);
-    let numero2 = parseFloat(req.query.numero2);
-    let array = [numero, numero2]
-    let ejercicio = req.query.ejercicio
+    let serie = [0,1];
+    let pares = req.query.serie;
+    let impares = req.query.serie;
     const examen = {
         get ejercicio() {
 
-            switch (ejercicio) {
-                case "pares":
-
-                    for (var i = 0; i <= 100; i++) {
-                        var nuevo_numero = numero + numero2;
-                        array.push(nuevo_numero);
-
-                        numero = numero2;
-                        numero2 = nuevo_numero;
+            if (numero % 2 === 0) {
+                    for (let i = 0; i <= 20; i++) {
+                        var numeroAnterior = serie[serie.Length - 2];
+                        var numeroFinal = serie[serie.Length - 1];
+                        let nuevoNumero = ultimo + anterior;
+                        serie.push(nuevoNumero);
                     }
-                return  array;
-                case "impares":
-
-                    for (var i = 2; i <= 100; i++) {
-                        var nuevo_numero = numero + numero2;
-                        array.push(nuevo_numero);
-
-                        numero = numero2;
-                        numero2 = nuevo_numero;
+                return  pares;
+        } else {
+            (numero % 2 !== 0) {
+                    for (let i = 0; i <= 10; i++) {
+                        var numeroAnterior = serie[serie.Length - 2];
+                        var numeroFinal = serie[serie.Length - 1];
+                        let nuevoNumero = ultimo + anterior;
+                        serie.push(nuevoNumero);
                     }
-                return  array;
-            }
+                return  impares;
         }
+            
     }
     res.json(examen);
 })
